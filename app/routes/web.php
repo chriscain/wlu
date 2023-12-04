@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\YahooController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,7 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-require __DIR__.'/auth.php';
+Route::get('/yahoo/redirect', [YahooController::class, 'handleRedirect']);
+Route::get('/yahoo/auth', [YahooController::class, 'authWithYahoo']);
+
+require __DIR__ . '/auth.php';

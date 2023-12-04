@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Yahoo\YahooSDK;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['auth:sanctum'])->get('/yahoo/teams', function (Request $request) {
+    $user = $request->user();
+
+    return YahooSDK::factory()
+        ->setUser($user)
+        ->getLeaguesForLoggedInUser();
 });

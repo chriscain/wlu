@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"javascript.validate.enable": false,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+		},
+		"intelephense.environment.phpVersion": "7.3.27",
+		"[feature]": {
+			"editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+		}
+	}
+}

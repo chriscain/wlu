@@ -1,13 +1,14 @@
-const AuthSessionStatus = ({ status, className, ...props }) => (
+const AuthSessionStatus = ({status, className, ...props}) => (
     <>
         {status && (
             <div
                 className={`${className} font-medium text-sm text-green-600`}
-                {...props}>
+                {...props}
+            >
                 {status}
             </div>
         )}
     </>
-)
+);
 
-export default AuthSessionStatus
+export default AuthSessionStatus;

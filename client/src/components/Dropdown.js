@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import React, {useState} from 'react';
+import {Menu, Transition} from '@headlessui/react';
 
 const Dropdown = ({
     align = 'right',
@@ -8,32 +8,32 @@ const Dropdown = ({
     trigger,
     children,
 }) => {
-    let alignmentClasses
+    let alignmentClasses;
 
     switch (width) {
         case '48':
-            width = 'w-48'
-            break
+            width = 'w-48';
+            break;
     }
 
     switch (align) {
         case 'left':
-            alignmentClasses = 'origin-top-left left-0'
-            break
+            alignmentClasses = 'origin-top-left left-0';
+            break;
         case 'top':
-            alignmentClasses = 'origin-top'
-            break
+            alignmentClasses = 'origin-top';
+            break;
         case 'right':
         default:
-            alignmentClasses = 'origin-top-right right-0'
-            break
+            alignmentClasses = 'origin-top-right right-0';
+            break;
     }
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
     return (
         <Menu as="div" className="relative">
-            {({ open }) => (
+            {({open}) => (
                 <>
                     <Menu.Button as={React.Fragment}>{trigger}</Menu.Button>
 
@@ -44,12 +44,15 @@ const Dropdown = ({
                         enterTo="transform opacity-100 scale-100"
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95">
+                        leaveTo="transform opacity-0 scale-95"
+                    >
                         <div
-                            className={`absolute z-50 mt-2 ${width} rounded-md shadow-lg ${alignmentClasses}`}>
+                            className={`absolute z-50 mt-2 ${width} rounded-md shadow-lg ${alignmentClasses}`}
+                        >
                             <Menu.Items
                                 className={`rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 ${contentClasses}`}
-                                static>
+                                static
+                            >
                                 {children}
                             </Menu.Items>
                         </div>
@@ -57,7 +60,7 @@ const Dropdown = ({
                 </>
             )}
         </Menu>
-    )
-}
+    );
+};
 
-export default Dropdown
+export default Dropdown;

@@ -1,9 +1,9 @@
-import AppLayout from '@/components/Layouts/AppLayout'
-import { useAuth } from '@/hooks/auth'
-import Head from 'next/head'
+import AppLayout from '@/components/Layouts/AppLayout';
+import {useAuth} from '@/hooks/auth';
+import Head from 'next/head';
 
 const Dashboard = () => {
-    const {logout, user} = useAuth({ middleware: 'auth' });
+    const {user} = useAuth({middleware: 'auth'});
 
     return (
         <AppLayout
@@ -11,7 +11,8 @@ const Dashboard = () => {
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Dashboard
                 </h2>
-            }>
+            }
+        >
             <Head>
                 <title>Laravel - Dashboard</title>
             </Head>
@@ -26,7 +27,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </AppLayout>
-    )
-}
+    );
+};
 
-export default Dashboard
+export default Dashboard;

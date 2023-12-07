@@ -1,29 +1,29 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import AuthSessionStatus from '@/components/AuthSessionStatus'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import AuthSessionStatus from '@/components/AuthSessionStatus';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Input from '@/components/Input';
+import InputError from '@/components/InputError';
+import Label from '@/components/Label';
+import Link from 'next/link';
+import {useAuth} from '@/hooks/auth';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 
 const PasswordReset = () => {
-    const router = useRouter()
+    const router = useRouter();
 
-    const { resetPassword } = useAuth({ middleware: 'guest' })
+    const {resetPassword} = useAuth({middleware: 'guest'});
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState([])
-    const [status, setStatus] = useState(null)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [errors, setErrors] = useState([]);
+    const [status, setStatus] = useState(null);
 
-    const submitForm = event => {
-        event.preventDefault()
+    const submitForm = (event) => {
+        event.preventDefault();
 
         resetPassword({
             email,
@@ -31,12 +31,12 @@ const PasswordReset = () => {
             password_confirmation: passwordConfirmation,
             setErrors,
             setStatus,
-        })
-    }
+        });
+    };
 
     useEffect(() => {
-        setEmail(router.query.email || '')
-    }, [router.query.email])
+        setEmail(router.query.email || '');
+    }, [router.query.email]);
 
     return (
         <GuestLayout>
@@ -45,7 +45,8 @@ const PasswordReset = () => {
                     <Link href="/">
                         <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
                     </Link>
-                }>
+                }
+            >
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
@@ -59,7 +60,7 @@ const PasswordReset = () => {
                             type="email"
                             value={email}
                             className="block mt-1 w-full"
-                            onChange={event => setEmail(event.target.value)}
+                            onChange={(event) => setEmail(event.target.value)}
                             required
                             autoFocus
                         />
@@ -75,7 +76,9 @@ const PasswordReset = () => {
                             type="password"
                             value={password}
                             className="block mt-1 w-full"
-                            onChange={event => setPassword(event.target.value)}
+                            onChange={(event) =>
+                                setPassword(event.target.value)
+                            }
                             required
                         />
 
@@ -96,7 +99,7 @@ const PasswordReset = () => {
                             type="password"
                             value={passwordConfirmation}
                             className="block mt-1 w-full"
-                            onChange={event =>
+                            onChange={(event) =>
                                 setPasswordConfirmation(event.target.value)
                             }
                             required
@@ -114,7 +117,7 @@ const PasswordReset = () => {
                 </form>
             </AuthCard>
         </GuestLayout>
-    )
-}
+    );
+};
 
-export default PasswordReset
+export default PasswordReset;

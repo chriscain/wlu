@@ -1,6 +1,6 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-const GuestLayout = ({ children }) => {
+const GuestLayout = ({children}) => {
     return (
         <div>
             <Head>
@@ -11,7 +11,7 @@ const GuestLayout = ({ children }) => {
                 {children}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default GuestLayout
+export default GuestLayout;

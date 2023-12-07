@@ -1,28 +1,28 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Input from '@/components/Input';
+import InputError from '@/components/InputError';
+import Label from '@/components/Label';
+import Link from 'next/link';
+import {useAuth} from '@/hooks/auth';
+import {useState} from 'react';
 
 const Register = () => {
-    const { register } = useAuth({
+    const {register} = useAuth({
         middleware: 'guest',
         redirectIfAuthenticated: '/dashboard',
-    })
+    });
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState([])
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [errors, setErrors] = useState([]);
 
-    const submitForm = event => {
-        event.preventDefault()
+    const submitForm = (event) => {
+        event.preventDefault();
 
         register({
             name,
@@ -30,8 +30,8 @@ const Register = () => {
             password,
             password_confirmation: passwordConfirmation,
             setErrors,
-        })
-    }
+        });
+    };
 
     return (
         <GuestLayout>
@@ -40,7 +40,8 @@ const Register = () => {
                     <Link href="/">
                         <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
                     </Link>
-                }>
+                }
+            >
                 <form onSubmit={submitForm}>
                     {/* Name */}
                     <div>
@@ -51,7 +52,7 @@ const Register = () => {
                             type="text"
                             value={name}
                             className="block mt-1 w-full"
-                            onChange={event => setName(event.target.value)}
+                            onChange={(event) => setName(event.target.value)}
                             required
                             autoFocus
                         />
@@ -68,7 +69,7 @@ const Register = () => {
                             type="email"
                             value={email}
                             className="block mt-1 w-full"
-                            onChange={event => setEmail(event.target.value)}
+                            onChange={(event) => setEmail(event.target.value)}
                             required
                         />
 
@@ -84,7 +85,9 @@ const Register = () => {
                             type="password"
                             value={password}
                             className="block mt-1 w-full"
-                            onChange={event => setPassword(event.target.value)}
+                            onChange={(event) =>
+                                setPassword(event.target.value)
+                            }
                             required
                             autoComplete="new-password"
                         />
@@ -106,7 +109,7 @@ const Register = () => {
                             type="password"
                             value={passwordConfirmation}
                             className="block mt-1 w-full"
-                            onChange={event =>
+                            onChange={(event) =>
                                 setPasswordConfirmation(event.target.value)
                             }
                             required
@@ -121,7 +124,8 @@ const Register = () => {
                     <div className="flex items-center justify-end mt-4">
                         <Link
                             href="/login"
-                            className="underline text-sm text-gray-600 hover:text-gray-900">
+                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                        >
                             Already registered?
                         </Link>
 
@@ -130,7 +134,7 @@ const Register = () => {
                 </form>
             </AuthCard>
         </GuestLayout>
-    )
-}
+    );
+};
 
-export default Register
+export default Register;

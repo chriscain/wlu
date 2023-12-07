@@ -1,30 +1,29 @@
-import AppLayout from '@/components/Layouts/AppLayout'
-import Head from 'next/head'
-import axios from '@/lib/axios'
+import AppLayout from '@/components/Layouts/AppLayout';
+import Head from 'next/head';
+import axios from '@/lib/axios';
 
 const Settings = () => {
-
     const handleAuth = () => {
         axios
             .get('/yahoo/auth')
-            .then(res => {
+            .then((res) => {
                 window.location.href = res.data;
             })
-            .catch(res => {
+            .catch((res) => {
                 console.log(res);
             });
-    }
+    };
 
     const getTeams = () => {
         axios
             .get('/api/yahoo/teams')
-            .then(res => {
+            .then((res) => {
                 console.log(res);
             })
-            .catch(res => {
+            .catch((res) => {
                 console.log(res);
             });
-    }
+    };
 
     return (
         <AppLayout
@@ -32,7 +31,8 @@ const Settings = () => {
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Settings
                 </h2>
-            }>
+            }
+        >
             <Head>
                 <title>Settings</title>
             </Head>
@@ -43,14 +43,24 @@ const Settings = () => {
                         <div className="p-6 bg-white border-b border-gray-200">
                             Connect to Yahoo
                         </div>
-                        <button className="px-6 py-12 bg-blue-400" onClick={handleAuth}>Auth with yahoo!</button>
+                        <button
+                            className="px-6 py-12 bg-blue-400"
+                            onClick={handleAuth}
+                        >
+                            Auth with yahoo!
+                        </button>
 
-                        <button className="px-6 py-12 bg-blue-800" onClick={getTeams}>Get teams!</button>
+                        <button
+                            className="px-6 py-12 bg-blue-800"
+                            onClick={getTeams}
+                        >
+                            Get teams!
+                        </button>
                     </div>
                 </div>
             </div>
         </AppLayout>
-    )
-}
+    );
+};
 
-export default Settings
+export default Settings;

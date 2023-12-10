@@ -2,23 +2,28 @@
 
 import * as React from 'react';
 import Head from 'next/head';
-// import {useAuth} from '@/hooks/auth';
 
 import {Layout} from '../components/layout/layout';
+import {Account} from '../components/account';
 
-export default function Home(): React.Node {
+export default function AccountPage(): React.Node {
     // const {logout, user} = useAuth({middleware: 'auth'});
 
     return (
-        <Layout header={{title: 'Dashboard', subtitle: 'something'}}>
+        <Layout
+            header={{
+                title: 'Account',
+                subtitle: 'Manage your account settings',
+            }}
+        >
             <Head>
-                <title>Weekly League Update</title>
+                <title>Settings</title>
                 <meta
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div>Home</div>
+            <Account />
         </Layout>
     );
 }

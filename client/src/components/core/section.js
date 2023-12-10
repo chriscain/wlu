@@ -12,5 +12,7 @@ type Props = {
 };
 
 export function Section(props: Props): React.Node {
-    return <div className={`mb-1 ${props.styles || ''}`}>{props.children}</div>;
+    return (
+        <div className={`mb-12 ${props.styles || ''}`}>{props.children}</div>
+    );
 }

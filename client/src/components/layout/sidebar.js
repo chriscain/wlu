@@ -47,7 +47,7 @@ export function Sidebar(): React.Node {
             <NavLink href="/bets" text="Update" icon={InboxArrowDownIcon} />
             <NavLink href="/reports" text="Reports" icon={ChartBarIcon} />
             <NavLink href="/history" text="History" icon={TrophyIcon} />
-            <NavLink href="/admin" text="Account" icon={UserCircleIcon} />
+            <NavLink href="/account" text="Account" icon={UserCircleIcon} />
         </div>
     );
 }

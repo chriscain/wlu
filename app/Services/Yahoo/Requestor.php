@@ -23,6 +23,11 @@ class Requestor
         $this->_user = $user;
     }
 
+    public function isEnabled(): bool
+    {
+        return (bool) $this->getAccessToken($this->_user);
+    }
+
     /**
      * @return AccessToken|null
      */

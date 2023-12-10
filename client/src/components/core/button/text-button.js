@@ -4,7 +4,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 type Props = {
-    variant?: 'primary' | 'success',
+    variant?: 'primary' | 'success' | 'destructive',
     onClick: () => void,
     disabled?: boolean,
     children: React.Node,
@@ -16,7 +16,10 @@ export function TextButton(props: Props): React.Node {
         'hover:text-indigo-800':
             (!props.variant || props.variant === 'primary') && !props.disabled,
         'text-green-500': props.variant === 'success',
+        'text-rose-500': props.variant === 'destructive',
         'hover:text-green-800': props.variant === 'success' && !props.disabled,
+        'hover:text-rose-800':
+            props.variant === 'destructive' && !props.disabled,
         'disabled:opacity-50 cursor-default': props.disabled,
     });
 
